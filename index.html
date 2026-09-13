@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portafolio Contable S&amp;C SAS | Asesorías y Servicios Contables Integrales</title>
+<meta name="description" content="Portafolio Contable S&C SAS: contabilidad, tributaria, nómina, revisoría fiscal, auditoría y asesoría financiera integral.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Work+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-deep:#0B1F3A;
+    --navy-mid:#15335E;
+    --gold:#C9A24B;
+    --gold-light:#E6C87E;
+    --cream:#FAF8F4;
+    --white:#FFFFFF;
+    --ink:#232A33;
+    --ink-soft:#5B6472;
+    --line:rgba(11,31,58,0.12);
+    --maxw:1180px;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Work Sans', sans-serif;
+    color:var(--ink);
+    background:var(--white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:'Playfair Display', serif;
+    color:var(--navy-deep);
+    font-weight:600;
+    line-height:1.15;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:3px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,0.94);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav-row{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:14px 32px;max-width:var(--maxw);margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:12px;}
+  .brand img{height:46px;width:auto;}
+  .brand-text{font-family:'Playfair Display',serif;font-weight:600;color:var(--navy-deep);font-size:1.02rem;letter-spacing:0.2px;}
+  .brand-text span{display:block;font-family:'Work Sans',sans-serif;font-weight:400;font-size:0.72rem;color:var(--ink-soft);letter-spacing:0.5px;}
+  nav.links{display:flex;gap:34px;align-items:center;}
+  nav.links a{font-size:0.95rem;color:var(--navy-mid);position:relative;padding:6px 0;}
+  nav.links a::after{
+    content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--gold);
+    transition:width 0.25s ease;
+  }
+  nav.links a:hover::after{width:100%;}
+  .nav-cta{
+    background:var(--navy-deep);color:var(--white)!important;
+    padding:10px 22px;border-radius:2px;font-size:0.9rem;
+  }
+  .nav-cta:hover{background:var(--navy-mid);}
+  .menu-btn{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .menu-btn span{display:block;width:24px;height:2px;background:var(--navy-deep);margin:5px 0;}
+
+  /* ---------- Hero ---------- */
+  .hero{
+    background:
+      radial-gradient(1100px 500px at 82% -10%, rgba(201,162,75,0.10), transparent 60%),
+      var(--cream);
+    padding:76px 0 92px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .wrap{
+    display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;
+  }
+  .eyebrow-line{
+    display:flex;align-items:center;gap:14px;margin-bottom:22px;
+  }
+  .eyebrow-line .rule{width:40px;height:1px;background:var(--gold);}
+  .eyebrow-line span{font-size:0.8rem;color:var(--navy-mid);letter-spacing:0.3px;}
+  .hero h1{font-size:2.7rem;max-width:560px;margin-bottom:20px;}
+  .hero h1 em{font-style:italic;color:var(--gold);}
+  .hero p.lead{font-size:1.08rem;color:var(--ink-soft);max-width:480px;margin-bottom:34px;}
+  .btn-row{display:flex;gap:18px;flex-wrap:wrap;}
+  .btn-primary{
+    background:var(--navy-deep);color:var(--white);padding:14px 30px;
+    font-size:0.95rem;border-radius:2px;border:1px solid var(--navy-deep);
+    transition:background 0.25s ease;
+  }
+  .btn-primary:hover{background:var(--navy-mid);}
+  .btn-ghost{
+    padding:14px 30px;font-size:0.95rem;border:1px solid var(--navy-deep);
+    color:var(--navy-deep);border-radius:2px;transition:all 0.25s ease;
+  }
+  .btn-ghost:hover{background:var(--navy-deep);color:var(--white);}
+  .hero-logo{
+    display:flex;justify-content:center;align-items:center;
+  }
+  .hero-logo img{
+    width:100%;max-width:420px;
+  }
+
+  /* ---------- Marquee strip ---------- */
+  .strip{
+    background:var(--navy-deep);color:var(--gold-light);
+    padding:14px 0;overflow:hidden;white-space:nowrap;
+  }
+  .strip .track{
+    display:inline-block;padding-left:100%;
+    animation:scroll-left 34s linear infinite;
+    font-size:0.85rem;letter-spacing:0.4px;
+  }
+  .strip .track span{margin:0 34px;color:rgba(255,255,255,0.85);}
+  .strip .track span::before{content:"•";color:var(--gold);margin-right:34px;}
+  @keyframes scroll-left{
+    0%{transform:translateX(0);}
+    100%{transform:translateX(-100%);}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .strip .track{animation:none;padding-left:0;}
+  }
+
+  /* ---------- Section shared ---------- */
+  section{padding:88px 0;}
+  .section-head{max-width:640px;margin-bottom:56px;}
+  .section-head .eyebrow-line span{color:var(--navy-mid);}
+  .section-head h2{font-size:2.1rem;}
+  .section-head p{color:var(--ink-soft);margin-top:14px;font-size:1.02rem;}
+
+  /* ---------- Services (list style, not cards) ---------- */
+  .services-list{border-top:1px solid var(--line);}
+  .service-row{
+    display:grid;grid-template-columns:64px 1fr 1.3fr;gap:28px;
+    padding:32px 0;border-bottom:1px solid var(--line);
+    align-items:start;
+  }
+  .service-row .num{
+    font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);
+    font-size:1.6rem;
+  }
+  .service-row h3{font-size:1.28rem;color:var(--navy-deep);}
+  .service-row p{color:var(--ink-soft);font-size:0.98rem;max-width:520px;}
+  @media (max-width:760px){
+    .service-row{grid-template-columns:40px 1fr;row-gap:8px;}
+    .service-row p{grid-column:2/3;}
+  }
+
+  /* ---------- Why us ---------- */
+  .why{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .why .wrap{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;align-items:center;}
+  .why-points{display:flex;flex-direction:column;gap:26px;}
+  .why-point{display:flex;gap:18px;}
+  .why-point .mark{
+    flex:none;width:38px;height:38px;border:1px solid var(--gold);border-radius:50%;
+    display:flex;align-items:center;justify-content:center;color:var(--gold);
+    font-family:'Playfair Display',serif;font-style:italic;
+  }
+  .why-point h4{font-size:1.05rem;margin-bottom:4px;color:var(--navy-deep);}
+  .why-point p{color:var(--ink-soft);font-size:0.96rem;}
+  .why-quote{
+    border-left:2px solid var(--gold);padding-left:28px;
+  }
+  .why-quote p{font-family:'Playfair Display',serif;font-style:italic;font-size:1.5rem;color:var(--navy-deep);line-height:1.4;}
+  .why-quote span{display:block;margin-top:18px;font-family:'Work Sans',sans-serif;font-style:normal;font-size:0.85rem;color:var(--ink-soft);letter-spacing:0.3px;}
+
+  /* ---------- Process ---------- */
+  .process .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:36px;}
+  .step{border-top:2px solid var(--navy-deep);padding-top:18px;}
+  .step .num{font-family:'Playfair Display',serif;font-style:italic;color:var(--gold);font-size:1.4rem;display:block;margin-bottom:10px;}
+  .step h4{font-size:1.02rem;margin-bottom:8px;color:var(--navy-deep);}
+  .step p{font-size:0.92rem;color:var(--ink-soft);}
+  @media (max-width:860px){.process .wrap{grid-template-columns:repeat(2,1fr);}}
+
+  /* ---------- Contact ---------- */
+  .contact{background:var(--navy-deep);color:var(--white);}
+  .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
+  .contact h2{color:var(--white);font-size:2.1rem;}
+  .contact .section-head p{color:rgba(255,255,255,0.7);}
+  .contact-info{display:flex;flex-direction:column;gap:22px;margin-top:12px;}
+  .contact-info a{color:var(--white);}
+  .contact-info .label{font-size:0.78rem;color:var(--gold-light);letter-spacing:0.4px;display:block;margin-bottom:4px;}
+  .contact-info .value{font-size:1.05rem;}
+  form{display:flex;flex-direction:column;gap:16px;}
+  form input, form textarea{
+    background:transparent;border:none;border-bottom:1px solid rgba(255,255,255,0.3);
+    color:var(--white);padding:12px 2px;font-family:'Work Sans',sans-serif;font-size:0.98rem;
+  }
+  form input::placeholder, form textarea::placeholder{color:rgba(255,255,255,0.45);}
+  form input:focus, form textarea:focus{border-bottom-color:var(--gold);}
+  form textarea{resize:vertical;min-height:100px;}
+  form button{
+    align-self:flex-start;margin-top:8px;
+    background:var(--gold);color:var(--navy-deep);border:none;
+    padding:14px 30px;font-size:0.95rem;border-radius:2px;cursor:pointer;
+    font-weight:500;transition:background 0.25s ease;
+  }
+  form button:hover{background:var(--gold-light);}
+
+  /* ---------- Footer ---------- */
+  footer{background:var(--navy-deep);border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;}
+  footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
+  footer p{color:rgba(255,255,255,0.55);font-size:0.85rem;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:900px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-logo{order:-1;margin-bottom:8px;}
+    .hero-logo img{max-width:260px;}
+    .why .wrap{grid-template-columns:1fr;}
+    .contact .wrap{grid-template-columns:1fr;}
+    nav.links{display:none;}
+    .menu-btn{display:block;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav-row">
+    <a class="brand" href="#inicio">
+      <img src="logo.jpg" alt="Logo Portafolio Contable S&C SAS">
+      <span class="brand-text">Portafolio Contable S&amp;C<span>Asesorías y servicios contables integrales</span></span>
+    </a>
+    <nav class="links">
+      <a href="#servicios">Servicios</a>
+      <a href="#nosotros">Nosotros</a>
+      <a href="#proceso">Proceso</a>
+      <a href="#contacto" class="nav-cta">Contáctanos</a>
+    </nav>
+    <button class="menu-btn" aria-label="Abrir menú" onclick="document.querySelector('nav.links').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<section class="hero" id="inicio">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow-line"><div class="rule"></div><span>CONTADURÍA PÚBLICA · CALI, COLOMBIA</span></div>
+      <h1>Claridad financiera para que su empresa <em>crezca</em> con tranquilidad</h1>
+      <p class="lead">Llevamos la contabilidad, los impuestos y la nómina de su negocio con precisión técnica y acompañamiento cercano, para que usted se enfoque en tomar decisiones, no en formularios.</p>
+      <div class="btn-row">
+        <a href="#contacto" class="btn-primary">Solicitar asesoría</a>
+        <a href="#servicios" class="btn-ghost">Ver servicios</a>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <img src="logo.jpg" alt="Portafolio Contable S&C SAS - Asesorías y Servicios Contables Integrales">
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <div class="track">
+    <span>Contabilidad general</span>
+    <span>Declaraciones tributarias</span>
+    <span>Nómina y seguridad social</span>
+    <span>Revisoría fiscal</span>
+    <span>Auditoría financiera</span>
+    <span>Consultoría NIIF</span>
+    <span>Constitución de empresas</span>
+    <span>Planeación tributaria</span>
+  </div>
+</div>
+
+<section id="servicios">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><div class="rule"></div><span>QUÉ HACEMOS</span></div>
+      <h2>Un portafolio contable completo</h2>
+      <p>Servicios pensados para independientes, pymes y sociedades que necesitan cifras confiables y cumplimiento normativo al día.</p>
+    </div>
+
+    <div class="services-list">
+      <div class="service-row">
+        <div class="num">01</div>
+        <h3>Contabilidad general y estados financieros</h3>
+        <p>Registro contable mensual, conciliaciones bancarias, libros oficiales y preparación de estados financieros bajo NIIF para la toma de decisiones.</p>
+      </div>
+      <div class="service-row">
+        <div class="num">02</div>
+        <h3>Declaraciones tributarias</h3>
+        <p>Renta, IVA, ICA y retención en la fuente. Presentación oportuna ante la DIAN y las secretarías de hacienda municipales, evitando sanciones e intereses.</p>
+      </div>
+      <div class="service-row">
+        <div class="num">03</div>
+        <h3>Nómina y seguridad social</h3>
+        <p>Liquidación de nómina, prestaciones sociales, parafiscales y planilla PILA, con reportes claros para su equipo de talento humano.</p>
+      </div>
+      <div class="service-row">
+        <div class="num">04</div>
+        <h3>Constitución y liquidación de empresas</h3>
+        <p>Acompañamiento en la creación de SAS y otras figuras societarias, trámites en cámara de comercio, RUT y registros ante entidades de control.</p>
+      </div>
+      <div class="service-row">
+        <div class="num">05</div>
+        <h3>Revisoría fiscal</h3>
+        <p>Función de revisor fiscal para sociedades que lo requieren por ley, con dictámenes objetivos e independientes sobre la gestión financiera.</p>
+      </div>
+      <div class="service-row">
+        <div class="num">06</div>
+        <h3>Auditoría financiera y de gestión</h3>
+        <p>Revisión de procesos, controles internos y cifras para identificar riesgos, cuellos de botella e inconsistencias antes de que se conviertan en problemas.</p>
+      </div>
+      <div class="service-row">
+        <div class="num">07</div>
+        <h3>Consultoría e implementación NIIF</h3>
+        <p>Transición y actualización de la contabilidad a Normas Internacionales de Información Financiera, según el grupo al que pertenezca su empresa.</p>
+      </div>
+      <div class="service-row">
+        <div class="num">08</div>
+        <h3>Asesoría financiera y planeación tributaria</h3>
+        <p>Análisis de indicadores, flujo de caja y estrategias legales para optimizar la carga tributaria y proyectar el crecimiento del negocio.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="why" id="nosotros">
+  <div class="wrap">
+    <div>
+      <div class="section-head" style="margin-bottom:34px;">
+        <div class="eyebrow-line"><div class="rule"></div><span>POR QUÉ S&amp;C</span></div>
+        <h2 style="font-size:1.9rem;">Un aliado contable, no solo un proveedor</h2>
+      </div>
+      <div class="why-points">
+        <div class="why-point">
+          <div class="mark">1</div>
+          <div>
+            <h4>Cumplimiento sin sobresaltos</h4>
+            <p>Fechas de vencimiento controladas y obligaciones al día ante la DIAN y demás entidades.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="mark">2</div>
+          <div>
+            <h4>Cifras que se entienden</h4>
+            <p>Informes claros, sin tecnicismos innecesarios, para que usted sepa exactamente cómo está su negocio.</p>
+          </div>
+        </div>
+        <div class="why-point">
+          <div class="mark">3</div>
+          <div>
+            <h4>Acompañamiento cercano</h4>
+            <p>Un equipo disponible para resolver dudas y anticiparse a los cambios normativos que afectan su empresa.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="why-quote">
+      <p>"La contabilidad ordenada no es un requisito legal más: es el mapa que le permite a un negocio saber hacia dónde va."</p>
+      <span>Equipo Portafolio Contable S&amp;C SAS</span>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="proceso">
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><div class="rule"></div><span>CÓMO TRABAJAMOS</span></div>
+      <h2>Un proceso simple, de principio a fin</h2>
+    </div>
+    <div class="wrap" style="padding:0;">
+      <div class="step">
+        <span class="num">01</span>
+        <h4>Diagnóstico inicial</h4>
+        <p>Revisamos el estado actual de su contabilidad y obligaciones tributarias.</p>
+      </div>
+      <div class="step">
+        <span class="num">02</span>
+        <h4>Propuesta a la medida</h4>
+        <p>Definimos el alcance del servicio según el tamaño y necesidades de su empresa.</p>
+      </div>
+      <div class="step">
+        <span class="num">03</span>
+        <h4>Puesta al día</h4>
+        <p>Organizamos y ponemos al día libros, declaraciones y procesos pendientes.</p>
+      </div>
+      <div class="step">
+        <span class="num">04</span>
+        <h4>Acompañamiento mensual</h4>
+        <p>Gestión contable continua, con reportes periódicos y soporte permanente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contacto">
+  <div class="wrap">
+    <div>
+      <div class="section-head">
+        <div class="eyebrow-line"><div class="rule"></div><span>HABLEMOS</span></div>
+        <h2>Cuéntenos sobre su empresa</h2>
+        <p>Escríbanos y le responderemos con una propuesta ajustada a sus necesidades contables y tributarias.</p>
+      </div>
+      <div class="contact-info">
+        <div>
+          <span class="label">CORREO</span>
+          <a class="value" href="mailto:contacto@portafoliocontablesyc.com">contacto@portafoliocontablesyc.com</a>
+        </div>
+        <div>
+          <span class="label">TELÉFONO / WHATSAPP</span>
+          <a class="value" href="tel:+573000000000">+57 300 000 0000</a>
+        </div>
+        <div>
+          <span class="label">UBICACIÓN</span>
+          <p class="value">Cali, Valle del Cauca, Colombia</p>
+        </div>
+      </div>
+    </div>
+    <form onsubmit="event.preventDefault(); alert('Gracias, hemos recibido su mensaje.');">
+      <input type="text" placeholder="Nombre completo" required>
+      <input type="text" placeholder="Nombre de la empresa (opcional)">
+      <input type="email" placeholder="Correo electrónico" required>
+      <textarea placeholder="¿En qué podemos ayudarle?" required></textarea>
+      <button type="submit">Enviar mensaje</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <p>&copy; <span id="year"></span> Portafolio Contable S&amp;C SAS. Todos los derechos reservados.</p>
+    <p>Asesorías y Servicios Contables Integrales</p>
+  </div>
+</footer>
+
+<script>
+  document.getElementById('year').textContent = new Date().getFullYear();
+</script>
+
+</body>
+</html>
