@@ -612,10 +612,9 @@
     status.textContent = '';
 
     emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
-      from_name: nombre,
-      empresa: empresa || 'No indicada',
-      from_email: correo,
-      message: mensaje
+      name: nombre,
+      email: correo,
+      mensaje: empresa ? `Empresa: ${empresa}. ${mensaje}` : mensaje
     }).then(function(){
       status.textContent = '✅ Mensaje enviado. Le responderemos pronto.';
       boton.textContent = 'Enviar mensaje';
