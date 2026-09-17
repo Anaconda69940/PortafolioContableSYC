@@ -185,6 +185,8 @@
   .contact .wrap{display:grid;grid-template-columns:1fr 1fr;gap:64px;}
   .contact h2{color:var(--white);font-size:2.1rem;}
   .contact .section-head p{color:rgba(255,255,255,0.7);}
+  .contact .eyebrow-line span{color:var(--gold-light);}
+  .contact .eyebrow-line .rule{background:var(--gold-light);}
   .contact-info{display:flex;flex-direction:column;gap:22px;margin-top:12px;}
   .contact-info a{color:var(--white);}
   .contact-info .label{font-size:0.78rem;color:var(--gold-light);letter-spacing:0.4px;display:block;margin-bottom:4px;}
@@ -245,7 +247,7 @@
 <section class="hero" id="inicio">
   <div class="wrap">
     <div>
-      <div class="eyebrow-line"><div class="rule"></div><span>CONTADURÍA PÚBLICA · BOGOTA, COLOMBIA</span></div>
+      <div class="eyebrow-line"><div class="rule"></div><span>CONTADURÍA PÚBLICA · CALI, COLOMBIA</span></div>
       <h1>Claridad financiera para que su empresa <em>crezca</em> con tranquilidad</h1>
       <p class="lead">Llevamos la contabilidad, los impuestos y la nómina de su negocio con precisión técnica y acompañamiento cercano, para que usted se enfoque en tomar decisiones, no en formularios.</p>
       <div class="btn-row">
@@ -267,7 +269,7 @@
     <span>Revisoría fiscal</span>
     <span>Auditoría financiera</span>
     <span>Consultoría NIIF</span>
-	<span>Constitución de empresas</span>
+    <span>Constitución de empresas</span>
     <span>Planeación tributaria</span>
   </div>
 </div>
@@ -329,7 +331,7 @@
   <div class="wrap">
     <div>
       <div class="section-head" style="margin-bottom:34px;">
-        <div class="eyebrow-line"><div class="rule"></div><span>POR QUÉ S&amp;C</span></div>
+        <div class="eyebrow-line"><div class="rule"></div><span>POR QUÉ PORTAFOLIO CONTABLE S&amp;C</span></div>
         <h2 style="font-size:1.9rem;">Un aliado contable, no solo un proveedor</h2>
       </div>
       <div class="why-points">
@@ -413,16 +415,19 @@
         </div>
         <div>
           <span class="label">UBICACIÓN</span>
-          <p class="value">Bogota, BOGOTA DISTRITO CAPITAL, Colombia</p>
+          <p class="value">Bogotá, Colombia</p>
         </div>
       </div>
     </div>
-    <form onsubmit="event.preventDefault(); alert('Gracias, hemos recibido su mensaje.');">
-      <input type="text" placeholder="Nombre completo" required>
-      <input type="text" placeholder="Nombre de la empresa (opcional)">
-      <input type="email" placeholder="Correo electrónico" required>
-      <textarea placeholder="¿En qué podemos ayudarle?" required></textarea>
-      <button type="submit">Enviar mensaje</button>
+    <form id="contactForm">
+      <input type="text" id="cf-nombre" placeholder="Nombre completo" required>
+      <input type="text" id="cf-empresa" placeholder="Nombre de la empresa (opcional)">
+      <input type="email" id="cf-correo" placeholder="Correo electrónico" required>
+      <textarea id="cf-mensaje" placeholder="¿En qué podemos ayudarle?" required></textarea>
+      <div class="btn-row" style="margin-top:6px;">
+        <button type="button" id="cf-whatsapp">Enviar por WhatsApp</button>
+        <button type="button" id="cf-email" style="background:transparent;border:1px solid var(--gold);color:var(--gold-light);">Enviar por correo</button>
+      </div>
     </form>
   </div>
 </section>
@@ -436,6 +441,42 @@
 
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // ⚠️ Reemplazar con el número real (con indicativo de país, sin +, sin espacios) y el correo real
+  const WHATSAPP_NUMERO = "573058212535";
+  const CORREO_DESTINO = "portafolio@contable-syc.com";
+
+  function construirMensaje(){
+    const nombre = document.getElementById('cf-nombre').value.trim();
+    const empresa = document.getElementById('cf-empresa').value.trim();
+    const correo = document.getElementById('cf-correo').value.trim();
+    const mensaje = document.getElementById('cf-mensaje').value.trim();
+
+    if(!nombre || !correo || !mensaje){
+      alert('Por favor completa nombre, correo y mensaje antes de enviar.');
+      return null;
+    }
+
+    let texto = `Hola, mi nombre es ${nombre}.`;
+    if(empresa) texto += ` Empresa: ${empresa}.`;
+    texto += ` Mi correo es ${correo}. Mensaje: ${mensaje}`;
+    return texto;
+  }
+
+  document.getElementById('cf-whatsapp').addEventListener('click', function(){
+    const texto = construirMensaje();
+    if(!texto) return;
+    const url = `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(texto)}`;
+    window.open(url, '_blank');
+  });
+
+  document.getElementById('cf-email').addEventListener('click', function(){
+    const texto = construirMensaje();
+    if(!texto) return;
+    const asunto = encodeURIComponent('Contacto desde la página web - Portafolio Contable S&C');
+    const cuerpo = encodeURIComponent(texto);
+    window.location.href = `mailto:${CORREO_DESTINO}?subject=${asunto}&body=${cuerpo}`;
+  });
 </script>
 
 </body>
