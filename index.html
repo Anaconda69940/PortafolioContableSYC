@@ -105,15 +105,15 @@
   .hero-logo{
     display:flex;justify-content:center;align-items:center;
   }
-  .hero-logo .logo-circle{
-    width:240px;height:240px;border-radius:50%;
+  .hero-logo .logo-square{
+    width:280px;height:280px;border-radius:14px;
     background:var(--white);
-    border:2px solid var(--gold);
-    box-shadow:0 12px 32px rgba(11,31,58,0.18);
+    border:1px solid var(--line);
+    box-shadow:0 12px 32px rgba(11,31,58,0.15);
     display:flex;align-items:center;justify-content:center;
-    overflow:hidden;padding:20px;
+    overflow:hidden;padding:22px;
   }
-  .hero-logo .logo-circle img{
+  .hero-logo .logo-square img{
     width:100%;height:100%;object-fit:contain;
   }
 
@@ -242,6 +242,55 @@
     .whatsapp-float svg{width:28px;height:28px;}
   }
 
+  /* ---------- Photo banner ---------- */
+  .photo-banner{
+    position:relative;height:340px;overflow:hidden;
+  }
+  .photo-banner img{
+    width:100%;height:100%;object-fit:cover;object-position:center 30%;
+  }
+  .photo-banner .overlay{
+    position:absolute;inset:0;
+    background:linear-gradient(90deg, rgba(11,31,58,0.88) 0%, rgba(11,31,58,0.55) 45%, rgba(11,31,58,0.15) 100%);
+    display:flex;align-items:center;
+  }
+  .photo-banner .overlay .wrap{max-width:520px;}
+  .photo-banner h3{color:var(--white);font-size:1.7rem;margin-bottom:10px;}
+  .photo-banner p{color:rgba(255,255,255,0.82);font-size:0.98rem;}
+  @media (max-width:700px){
+    .photo-banner{height:420px;}
+    .photo-banner .overlay{background:linear-gradient(180deg, rgba(11,31,58,0.55) 0%, rgba(11,31,58,0.92) 75%);align-items:flex-end;padding-bottom:30px;}
+  }
+
+  /* ---------- Gallery ---------- */
+  .gallery-grid{
+    display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+  }
+  .gallery-item{
+    border-radius:6px;overflow:hidden;position:relative;height:260px;
+    box-shadow:0 8px 24px rgba(11,31,58,0.12);
+  }
+  .gallery-item img{
+    width:100%;height:100%;object-fit:cover;
+    transition:transform 0.5s ease;
+  }
+  .gallery-item:hover img{transform:scale(1.06);}
+  .gallery-caption{
+    position:absolute;left:0;right:0;bottom:0;
+    background:linear-gradient(180deg, transparent, rgba(11,31,58,0.85));
+    color:var(--white);padding:16px;font-size:0.92rem;
+  }
+  @media (max-width:860px){
+    .gallery-grid{grid-template-columns:1fr;}
+    .gallery-item{height:220px;}
+  }
+
+  /* ---------- Why-us image ---------- */
+  .why-image{
+    border-radius:6px;overflow:hidden;box-shadow:0 12px 30px rgba(11,31,58,0.15);
+  }
+  .why-image img{width:100%;height:100%;object-fit:cover;display:block;}
+
   /* ---------- Footer ---------- */
   footer{background:var(--navy-deep);border-top:1px solid rgba(255,255,255,0.12);padding:26px 0;}
   footer .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;}
@@ -265,7 +314,7 @@
   @media (max-width:900px){
     .hero .wrap{grid-template-columns:1fr;}
     .hero-logo{order:-1;margin-bottom:8px;}
-    .hero-logo .logo-circle{width:160px;height:160px;}
+    .hero-logo .logo-square{width:180px;height:180px;}
     .why .wrap{grid-template-columns:1fr;}
     .contact .wrap{grid-template-columns:1fr;}
     nav.links{display:none;}
@@ -305,7 +354,7 @@
       </div>
     </div>
     <div class="hero-logo">
-      <div class="logo-circle">
+      <div class="logo-square">
         <img src="logo.jpg" alt="Portafolio Contable S&C SAS - Asesorías y Servicios Contables Integrales">
       </div>
     </div>
@@ -322,6 +371,16 @@
     <span>Consultoría NIIF</span>
     <span>Constitución de empresas</span>
     <span>Planeación tributaria</span>
+  </div>
+</div>
+
+<div class="photo-banner">
+  <img src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1600&q=80" alt="Equipo de trabajo revisando cifras financieras">
+  <div class="overlay">
+    <div class="wrap">
+      <h3>Relaciones de confianza, no solo transacciones</h3>
+      <p>Detrás de cada cifra hay una decisión de negocio. Por eso trabajamos codo a codo con cada cliente, entendiendo su operación antes de tocar sus números.</p>
+    </div>
   </div>
 </div>
 
@@ -409,9 +468,14 @@
         </div>
       </div>
     </div>
-    <div class="why-quote">
-      <p>"La contabilidad ordenada no es un requisito legal más: es el mapa que le permite a un negocio saber hacia dónde va."</p>
-      <span>Equipo Portafolio Contable S&amp;C SAS</span>
+    <div>
+      <div class="why-image" style="margin-bottom:26px;height:260px;">
+        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?auto=format&fit=crop&w=1000&q=80" alt="Apretón de manos entre asesor contable y cliente">
+      </div>
+      <div class="why-quote">
+        <p>"La contabilidad ordenada no es un requisito legal más: es el mapa que le permite a un negocio saber hacia dónde va."</p>
+        <span>Equipo Portafolio Contable S&amp;C SAS</span>
+      </div>
     </div>
   </div>
 </section>
@@ -442,6 +506,29 @@
         <span class="num">04</span>
         <h4>Acompañamiento mensual</h4>
         <p>Gestión contable continua, con reportes periódicos y soporte permanente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <div class="eyebrow-line"><div class="rule"></div><span>NUESTRO ENFOQUE</span></div>
+      <h2>Cifras claras, decisiones seguras</h2>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=700&q=80" alt="Análisis de indicadores financieros en pantalla">
+        <div class="gallery-caption">Análisis financiero y planeación tributaria</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=700&q=80" alt="Documentos contables y calculadora sobre el escritorio">
+        <div class="gallery-caption">Contabilidad y cumplimiento tributario al día</div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=700&q=80" alt="Equipo de trabajo reunido revisando un proyecto">
+        <div class="gallery-caption">Un equipo cercano en cada etapa de su negocio</div>
       </div>
     </div>
   </div>
@@ -501,9 +588,9 @@
   document.getElementById('year').textContent = new Date().getFullYear();
 
   // ⚠️ PENDIENTE: reemplazar estos 3 valores con los que te dé tu cuenta de EmailJS
-  const EMAILJS_PUBLIC_KEY  = "TU_PUBLIC_KEY";
-  const EMAILJS_SERVICE_ID  = "TU_SERVICE_ID";
-  const EMAILJS_TEMPLATE_ID = "TU_TEMPLATE_ID";
+  const EMAILJS_PUBLIC_KEY  = "K0lI1MsKsiAdOQRnw";
+  const EMAILJS_SERVICE_ID  = "service_vthz6nd";
+  const EMAILJS_TEMPLATE_ID = "template_f5cy9wc";
 
   emailjs.init(EMAILJS_PUBLIC_KEY);
 
